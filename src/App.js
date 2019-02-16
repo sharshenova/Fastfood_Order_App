@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {importAll} from './utils/import-all';
 import './App.css';
-import ItemsForm from './Components/ItemsForm/ItemsForm';
-import OrderForm from './Components/OrderForm/OrderForm';
+import Menu from './Components/Menu/Menu';
+//import Order from './Components/Order/Order';
 
 // создает объект контекста, содержаций ключи и пути ко всем файлам
 // используется для массового импорта файлов из ./images/icons
@@ -14,7 +14,7 @@ const context = require.context('./images/icons', false, /\.png$/);
 // вызываем функцию, преобразующую объект контекста в словарь,
 // хранящий в качестве ключей названия файлов,
 // а в качестве значений - пути к ним
-conts icons = importAll(context);
+const icons = importAll(context);
 
 const FOODS = [
 	{name: 'hamburger', price: 80, label: 'Hamburger', icon: icons['burger.png']},
@@ -37,9 +37,14 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="Container">
-				<ItemsForm items={FOODS}/>
-				<OrderForm items={this.state.items}/>
+			<div className="container">
+				<div className="row">
+					<div className="col col-4">
+					</div>
+					<div className="col col-8">
+						<Menu foods={FOODS}/>
+					</div>
+				</div>
 			</div>
 		);
 	}

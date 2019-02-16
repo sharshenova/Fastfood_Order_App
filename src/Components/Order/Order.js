@@ -1,10 +1,10 @@
 import React from 'react';
 import OrderItem from './OrderItem/OrderItem';
 
-function OrderForm (props) {
+function Order (props) {
 
 	return (
-		<div class="OrderForm">
+		<div class="Order">
 			{props.items.map(item =>
 				<OrderItem
 					key = {item.name}
@@ -18,4 +18,4 @@ function OrderForm (props) {
 	);
 };
 
-export default OrderForm;
+export default Order;
