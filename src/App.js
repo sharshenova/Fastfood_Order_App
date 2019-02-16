@@ -1,39 +1,37 @@
 import React, { Component } from 'react';
+import {importAll} from './utils/import-all';
 import './App.css';
 import ItemsForm from './Components/ItemsForm/ItemsForm';
 import OrderForm from './Components/OrderForm/OrderForm';
 
-const FOODS = [
-	{name: 'hamburger', price: 80, label: 'Hamburger'},
-	{name: 'coffee', price: 70, label: 'Coffee'},
-	{name: 'cheeseburger', price: 90, label: 'Cheeseburger'},
-	{name: 'tea', price: 50, label: 'Tea'},
-	{name: 'fries', price: 45, label: 'Fries'},
-	{name: 'cola', price: 40, label: 'Cola'}
-];
+// создает объект контекста, содержаций ключи и пути ко всем файлам
+// используется для массового импорта файлов из ./images/icons
+// false показывает, что нужно импортировать только файлы верхнего уровня
+// (true - импортировать файлы из вложеных папок тоже)
+// третий аргумент - регулярное выражение: \. - только символ ".", $ - конец строки
+const context = require.context('./images/icons', false, /\.png$/);
 
+// вызываем функцию, преобразующую объект контекста в словарь,
+// хранящий в качестве ключей названия файлов,
+// а в качестве значений - пути к ним
+conts icons = importAll(context);
+
+const FOODS = [
+	{name: 'hamburger', price: 80, label: 'Hamburger', icon: icons['burger.png']},
+	{name: 'coffee', price: 70, label: 'Coffee', icon: icons['coffee.png']},
+	{name: 'cheeseburger', price: 90, label: 'Cheeseburger', icon: icons['cheese.png'] },
+	{name: 'tea', price: 50, label: 'Tea', icon: icons['tea.png']},
+	{name: 'fries', price: 45, label: 'Fries', icon: icons['fried-potatoes.png']},
+	{name: 'cola', price: 40, label: 'Cola', icon: icons['cola.png']}
+];
 
 class App extends Component {
 	state = {
-		items: [
-			{name: 'hamburger', count: 0, total: 0},
-			{name: 'coffee', count: 0, total: 0},
-			{name: 'cheeseburger', count: 0, total: 0},
-			{name: 'tea', count: 0, total: 0},
-			{name: 'fries', count: 0, total: 0},
-			{name: 'cola', count: 0, total: 0}
-		],
-		totalPrice: 0
+		order: [],
+		total: 0
 	};
 
-	const addItem = (name) => {
-		
 
-
-		return (
-
-		)
-	}
 
 
 
