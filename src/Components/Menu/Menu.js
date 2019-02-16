@@ -5,8 +5,8 @@ function Menu (props) {
 
 	return <div className="box">
 		<h4 className="box-title">Menu:</h4>
-		<div ClassName="row">
-			{props.foods.map(food => <div ClassName="col col-6">
+		<div className="row">
+			{props.foods.map(food => <div className="col col-6">
 				<MenuItem
 					key = {food.name}
 					icon = {food.icon}

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {importAll} from './utils/import-all';
 import './App.css';
 import Menu from './Components/Menu/Menu';
-//import Order from './Components/Order/Order';
+import Order from './Components/Order/Order';
+import Total from './Components/Order/Total/Total';
+
 
 // создает объект контекста, содержаций ключи и пути ко всем файлам
 // используется для массового импорта файлов из ./images/icons
@@ -27,9 +29,13 @@ const FOODS = [
 
 class App extends Component {
 	state = {
-		order: [],
+		foods: [
+			{name: "Coffee", price: 70, count: 1}
+		],
 		total: 0
 	};
+
+
 
 
 
@@ -40,6 +46,7 @@ class App extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col col-4">
+						<Order foods={this.state.foods} total={this.state.total}/>
 					</div>
 					<div className="col col-8">
 						<Menu foods={FOODS}/>
