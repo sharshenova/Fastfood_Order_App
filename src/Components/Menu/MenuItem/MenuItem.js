@@ -2,7 +2,7 @@ import React from 'react';
 
 function MenuItem (props) {
 
-	return <div className="MenuItem">
+	return <div className="MenuItem" onClick={props.clicked}>
 		<div className="row">
 			<div className="col col-4">
 				<img className="FoodIcon" src={props.icon} alt={props.label}/>

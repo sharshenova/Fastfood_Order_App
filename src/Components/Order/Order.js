@@ -9,9 +9,10 @@ function Order (props) {
 		{props.foods.map(food =>
 			<OrderItem
 				key = {food.name}
-				name = {food.name}
+				label = {food.label}
 				count = {food.count}
 				total = {food.total}
+				clicked = {(event) => {props.removeOrderFood(event, food.name);}}
 			/>
 		)}
 		<Total total={props.total}/>

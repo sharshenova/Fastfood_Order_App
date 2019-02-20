@@ -12,6 +12,7 @@ function Menu (props) {
 					icon = {food.icon}
 					label = {food.label}
 					price = {food.price}
+					clicked={(event) => {props.addOrderFood(event, food.name);}}
 				/>
 			</div>)}
 		</div>
